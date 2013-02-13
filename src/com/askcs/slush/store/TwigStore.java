@@ -87,8 +87,23 @@ implements Store {
 			Date now = new Date();
 			BlobKey key = list.get( 0 );
 			BlobInfo info = blobmeta.loadBlobInfo( key );
+			String[] split = path.split( "/" );
+			String stem = "/";
+			for ( int i = 1; i < split.length - 1; i++ ) {
+				String s = stem + split[ i ] + "/";
+				Item next = datastore.load( Item.class, s );
+				if ( next == null ) {
+					next = new Item( s, stem );
+					next.created = now;
+					next.modified = now;
+					datastore.store( next );
+					System.out.println( " add path " + stem + " => " + s  );
+					
+				}
+				stem = s;
+			}
 			if ( item == null ) {
-				item = new Item( path, null );
+				item = new Item( path, stem );
 				item.created = now;
 			} else {
 				blobstore.delete( item.key );

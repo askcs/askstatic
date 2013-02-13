@@ -17,7 +17,7 @@ implements Serializable {
 	// doesn't work?
 		
 	@Id public String path;
-	@Parent public String parent;
+	public String parent;
 	public BlobKey key;
 	
 	public Date created;

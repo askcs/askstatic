@@ -7,7 +7,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-14.0-rc1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/twig-persist-2.0-rc.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-14.0-rc1.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
